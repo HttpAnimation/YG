@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.logo-container {
+  position: relative;
+}
+
+.logo {
+  font-size: 24px;
+  color: silver;
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 18px;
+  color: silver;
+}
