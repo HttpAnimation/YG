@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bouncing DVD Logo</title>
+    <title>Bouncing DVD Text</title>
     <style>
         body, html {
             height: 100%;
@@ -33,7 +33,7 @@
 <body>
 
 <div id="container">
-    <div id="dvdLogo"></div>
+    <div id="dvdLogo">DVD</div> <!-- The text to bounce around -->
 </div>
 
 <script>
@@ -46,7 +46,7 @@
         let dvdRect = dvd.getBoundingClientRect();
         let containerRect = container.getBoundingClientRect();
 
-        // Move the DVD logo
+        // Move the DVD text
         dvd.style.left = (dvd.offsetLeft + speedX) + 'px';
         dvd.style.top = (dvd.offsetTop + speedY) + 'px';
 
