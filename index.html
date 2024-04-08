@@ -1,17 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SilverOS</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>Bouncing DVD Logo</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        #container {
+            width: 90%;
+            height: 90%;
+            position: relative;
+        }
+        #dvdLogo {
+            width: 160px;
+            height: 90px;
+            position: absolute;
+            background-image: url('dvd-logo.png'); /* Add your DVD logo image path here */
+            background-size: 100% 100%;
+        }
+    </style>
 </head>
 <body>
-  <div class="logo-container">
-    <div class="logo">Your gay</div>
-    <div class="counter">0</div>
-  </div>
 
-  <script src="script.js"></script>
+<div id="container">
+    <div id="dvdLogo"></div>
+</div>
+
+<script>
+    let dvd = document.getElementById("dvdLogo");
+    let container = document.getElementById("container");
+
+    let speedX = 2, speedY = 2;
+
+    function moveDVD() {
+        let dvdRect = dvd.getBoundingClientRect();
+        let containerRect = container.getBoundingClientRect();
+
+        // Move the DVD logo
+        dvd.style.left = (dvd.offsetLeft + speedX) + 'px';
+        dvd.style.top = (dvd.offsetTop + speedY) + 'px';
+
+        // Check for container boundaries
+        if (dvdRect.right >= containerRect.right || dvdRect.left <= containerRect.left) {
+            speedX *= -1; // Reverse the horizontal direction
+        }
+        if (dvdRect.bottom >= containerRect.bottom || dvdRect.top <= containerRect.top) {
+            speedY *= -1; // Reverse the vertical direction
+        }
+
+        requestAnimationFrame(moveDVD);
+    }
+
+    // Start the animation
+    requestAnimationFrame(moveDVD);
+</script>
+
 </body>
 </html>
